@@ -1,0 +1,15 @@
+version: '3'
+services:
+  spark:
+    build: .
+    container_name: spark_container
+    environment:
+      - SPARK_LOCAL_IP=127.0.0.1
+      - SPARK_MASTER_HOST=spark-master
+      - SPARK_NO_DAEMONIZE=true
+    ports:
+      - "4040:4040"
+      - "8888:8888"
+    volumes:
+      - .:/app
+    command: ["/bin/bash"]
